@@ -8,8 +8,9 @@
 
 - [x] girilen 2 sayı arasında random sayı üretmek.
 - [x] responsive tasarım.
-- [*] girilen sayı adedi kadar random sayı üretmek
-- [ ] Üretilen random sayıları büyükten küçüğe ya da küçükten büyüğe sıralama
+- [x] girilen sayı adedi kadar random sayı üretmek
+- [x] Üretilen random sayıları büyükten küçüğe ya da küçükten büyüğe sıralama
+- [ ] sayı tekrarına izin verme vermeme
 
 ### Projede kullanılan Teknolojiler ve Metotlar :
 
