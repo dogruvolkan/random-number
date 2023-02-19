@@ -16,5 +16,5 @@
 > [random-number-generator]("x.com")
 
 ### Projenin Görselleri:
-![Alt text](url "Title")
-![Alt text](url "Title")
+![Alt text](mobile.gif)
+
