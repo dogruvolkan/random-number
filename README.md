@@ -22,4 +22,4 @@
 
 ### Projenin Görselleri:
 
-![ekran görüntüsü](ss.gif)
+![ekran görüntüsü](src/ss.gif)
