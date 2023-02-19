@@ -6,7 +6,7 @@
 ### Proje durumu ve yapılacaklar : 
 - [x] girilen 2 sayı arasında random sayı üretmek.
 - [x] responsive tasarım.
-- [*] girilen sayı adedi kadar random sayı üretmek
+- [x] girilen sayı adedi kadar random sayı üretmek
 - [ ] Üretilen random sayıları büyükten küçüğe ya da küçükten büyüğe sıralama
 
 ### Projede kullanılan Teknolojiler ve Metotlar :
