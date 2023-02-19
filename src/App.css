@@ -48,10 +48,15 @@ body {
   border-radius: 5px;
 }
 
-.card-radio{
+.card-radio {
   margin: 15px 0;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
+}
+
+
+.card-radio label {
+  margin: 10px 40px;
 }
 
 .buttons {
@@ -78,16 +83,22 @@ body {
   border: 1px solid red;
 }
 
-.card-result{
+.card-result {
   width: 100%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap:10px;
+  gap: 10px;
 }
 
-.card-result h2{
+.result-sum {
+  text-align: center;
+  margin: 20px 0;
+  font-weight: 600;
+}
 
+
+.card-result h2 {
   padding: 10px;
   border: 3px dashed blueviolet;
 }

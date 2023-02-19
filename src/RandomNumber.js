@@ -2,21 +2,21 @@ import { useState } from "react";
 import "./App.css";
 
 const RandomNumber = () => {
-  const [min, setMin] = useState("");
-  const [max, setMax] = useState("");
-  const [piece, setPiece] = useState("");
+  const [min, setMin] = useState();
+  const [max, setMax] = useState();
+  const [piece, setPiece] = useState();
   const [selectedRadioValue, setSelectedRadioValue] = useState("");
-  const [results, setResults] = useState([]);
+  var [results, setResults] = useState([]);
   const [showResult, setShowResult] = useState(false);
 
   const handleMin = (e) => {
-    setMin(Number(e.target.value));
+    setMin(+e.target.value);
   };
   const handleMax = (e) => {
-    setMax(Number(e.target.value));
+    setMax(+e.target.value);
   };
   const handlePiece = (e) => {
-    setPiece(Number(e.target.value));
+    setPiece(+e.target.value);
   };
 
   const handleOptionChange = (e) => {
@@ -30,11 +30,20 @@ const RandomNumber = () => {
       var randomNumber = Math.floor(Math.random() * (max - min + 1) + min);
       results.push(randomNumber);
       console.log("sonuc0", results);
-      setMin("");
-      setMax("");
-      setPiece("");
     }
     console.log("sonuc1", results);
+
+    if (selectedRadioValue === "asc") {
+      console.log("girdi");
+      results.sort(function (a, b) {
+        return a - b;
+      });
+    } else if (selectedRadioValue === "desc") {
+      results.sort(function (a, b) {
+        return b - a;
+      });
+    }
+    console.log("sonuc2", results);
     setShowResult(true);
   };
 
@@ -63,26 +72,6 @@ const RandomNumber = () => {
               className="card-input"
             ></input>
           </div>
-          <div className="card-radio">
-            <label>
-              <input
-                type="radio"
-                value="option1"
-                checked={selectedRadioValue === "asc"}
-                onChange={handleOptionChange}
-              />
-              ASC
-            </label>
-            <label>
-              <input
-                type="radio"
-                value="option2"
-                checked={selectedRadioValue === "desc"}
-                onChange={handleOptionChange}
-              />
-              DESC
-            </label>
-          </div>
           <div>
             <label>how many random numbers do you want to generate ?</label>
             <input
@@ -93,7 +82,63 @@ const RandomNumber = () => {
               className="card-input"
             ></input>
           </div>
+          <div className="card-radio">
+            <label>
+              <input
+                type="radio"
+                value="repeat"
+                checked={selectedRadioValue === "repeat"}
+                onChange={handleOptionChange}
+              />
+              Allow repeat
+            </label>
+            <label>
+              <input
+                type="radio"
+                value="asc"
+                checked={selectedRadioValue === "asc"}
+                onChange={handleOptionChange}
+              />
+              ASC
+            </label>
+          </div>
+          <div className="card-radio">
+            <label>
+              <input
+                type="radio"
+                value="asc"
+                checked={selectedRadioValue === "asc"}
+                onChange={handleOptionChange}
+              />
+              ASC
+            </label>
+            <label>
+              <input
+                type="radio"
+                value="desc"
+                checked={selectedRadioValue === "desc"}
+                onChange={handleOptionChange}
+              />
+              DESC
+            </label>
+            <label>
+              <input
+                type="radio"
+                value="no"
+                checked={selectedRadioValue === "no"}
+                onChange={handleOptionChange}
+              />
+              NO
+            </label>
+          </div>
 
+          <div className="result-sum">
+            {showResult ? (
+              <p>
+                {piece} numbers between {min} and {max}
+              </p>
+            ) : null}
+          </div>
           {showResult ? (
             <div className="card-result">
               {results.map((result, index) => (
