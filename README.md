@@ -22,4 +22,4 @@
 
 ### Projenin Görselleri:
 
-![Alt text](mobile.gif)
+![ekran görüntüsü](ss.gif)

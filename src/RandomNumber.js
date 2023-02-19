@@ -1,11 +1,12 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 
 const RandomNumber = () => {
   const [min, setMin] = useState();
   const [max, setMax] = useState();
   const [piece, setPiece] = useState();
-  const [selectedRadioValue, setSelectedRadioValue] = useState("");
+  const [selectedSort, setSelectedSort] = useState("");
+  const [selectedRepeat, setSelectedRepeat] = useState("");
   var [results, setResults] = useState([]);
   const [showResult, setShowResult] = useState(false);
 
@@ -19,8 +20,12 @@ const RandomNumber = () => {
     setPiece(+e.target.value);
   };
 
-  const handleOptionChange = (e) => {
-    setSelectedRadioValue(e.target.value);
+  const handleSortChange = (e) => {
+    setSelectedSort(e.target.value);
+  };
+
+  const handleRepeatChange = (e) => {
+    setSelectedRepeat(e.target.value);
   };
 
   const generateNumber = (e) => {
@@ -28,17 +33,20 @@ const RandomNumber = () => {
 
     for (let i = 0; i < piece; i++) {
       var randomNumber = Math.floor(Math.random() * (max - min + 1) + min);
+      // if (selectedRepeat === "norepeat") {
+      //   results.push(randomNumber);
+      //   results = [...new Set(results)];
+      // } else {
+      //   results.push(randomNumber);
+      // }
       results.push(randomNumber);
-      console.log("sonuc0", results);
     }
-    console.log("sonuc1", results);
 
-    if (selectedRadioValue === "asc") {
-      console.log("girdi");
+    if (selectedSort === "asc") {
       results.sort(function (a, b) {
         return a - b;
       });
-    } else if (selectedRadioValue === "desc") {
+    } else if (selectedSort === "desc") {
       results.sort(function (a, b) {
         return b - a;
       });
@@ -87,19 +95,19 @@ const RandomNumber = () => {
               <input
                 type="radio"
                 value="repeat"
-                checked={selectedRadioValue === "repeat"}
-                onChange={handleOptionChange}
+                checked={selectedRepeat === "repeat"}
+                onChange={handleRepeatChange}
               />
-              Allow repeat
+              Allow Repeat
             </label>
             <label>
               <input
                 type="radio"
-                value="asc"
-                checked={selectedRadioValue === "asc"}
-                onChange={handleOptionChange}
+                value="norepeat"
+                checked={selectedRepeat === "norepeat"}
+                onChange={handleRepeatChange}
               />
-              ASC
+              Don't Allow Repeat
             </label>
           </div>
           <div className="card-radio">
@@ -107,8 +115,8 @@ const RandomNumber = () => {
               <input
                 type="radio"
                 value="asc"
-                checked={selectedRadioValue === "asc"}
-                onChange={handleOptionChange}
+                checked={selectedSort === "asc"}
+                onChange={handleSortChange}
               />
               ASC
             </label>
@@ -116,8 +124,8 @@ const RandomNumber = () => {
               <input
                 type="radio"
                 value="desc"
-                checked={selectedRadioValue === "desc"}
-                onChange={handleOptionChange}
+                checked={selectedSort === "desc"}
+                onChange={handleSortChange}
               />
               DESC
             </label>
@@ -125,8 +133,8 @@ const RandomNumber = () => {
               <input
                 type="radio"
                 value="no"
-                checked={selectedRadioValue === "no"}
-                onChange={handleOptionChange}
+                checked={selectedSort === "no"}
+                onChange={handleSortChange}
               />
               NO
             </label>
@@ -135,7 +143,7 @@ const RandomNumber = () => {
           <div className="result-sum">
             {showResult ? (
               <p>
-                {piece} numbers between {min} and {max}
+                {piece} numbers between {min} and {max} sorting {selectedSort}
               </p>
             ) : null}
           </div>
