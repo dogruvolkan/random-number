@@ -21,14 +21,15 @@ React Icons kullanıldı.
 gh-pages kullanıldı.
 
 ### proje font ve renk:
-#20262E
-#913175
-#E9E8E8
+(#20262E)
+(#913175)
+(#E9E8E8)
 
 ### Proje Adresi
 
-> [random-number-generator]("x.com")
+> [random-number-generator]("https://dogruvolkan.github.io/random-number/")
 
 ### Projenin Görselleri:
 
-![ekran görüntüsü](src/ss.gif)
+![ekran görüntüsü](src/desktop.gif)
+![ekran görüntüsü](src/mobile.png)
