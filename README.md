@@ -18,6 +18,12 @@
 > Projede useState hook kullanıldı. stilendirme için herhangi bir kütüphane kullanılmadı pure css ile stilendirme yapıldı.
 react-copy-to-clipboard kullanıldı.
 React Icons kullanıldı.
+gh-pages kullanıldı.
+
+### proje font ve renk:
+#20262E
+#913175
+#E9E8E8
 
 ### Proje Adresi
 

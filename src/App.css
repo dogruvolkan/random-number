@@ -18,7 +18,7 @@ body {
 }
 
 .card {
-  width: 100%;
+  width: 550px;
   border: 1px solid #ddd;
   color: #20262E;
   border-radius: 12px;
@@ -136,3 +136,23 @@ legend {
 .card-result h2 {
   padding: 5px 10px;
 }
+
+
+
+@media only screen and (max-width: 600px) {
+  .App {
+    margin: 0;
+  }
+
+  .card {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .buttons button {
+    padding: 10px 20px;
+    width: 150px;
+    font-size: 16px;
+  }
+}
+

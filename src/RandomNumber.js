@@ -9,7 +9,7 @@ const RandomNumber = () => {
   const [piece, setPiece] = useState();
   const [selectedSort, setSelectedSort] = useState("");
   const [selectedRepeat, setSelectedRepeat] = useState("");
-  var [results, setResults] = useState([]);
+  const [results, setResults] = useState([]);
   const [showResult, setShowResult] = useState(false);
   const [copied, setCopied] = useState(false);
 
@@ -54,7 +54,7 @@ const RandomNumber = () => {
         return b - a;
       });
     }
-    console.log("sonuc2", results);
+
     setShowResult(true);
   };
 
