@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
+import { CopyToClipboard } from "react-copy-to-clipboard";
+import { MdOutlineContentCopy } from "react-icons/md";
 
 const RandomNumber = () => {
   const [min, setMin] = useState();
@@ -9,6 +11,7 @@ const RandomNumber = () => {
   const [selectedRepeat, setSelectedRepeat] = useState("");
   var [results, setResults] = useState([]);
   const [showResult, setShowResult] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   const handleMin = (e) => {
     setMin(+e.target.value);
@@ -60,7 +63,7 @@ const RandomNumber = () => {
       <div className="card">
         <h1>Random Numbers Generator</h1>
         <form>
-          <div>
+          <div className="card-inputs">
             <label>Lower Limit</label>
             <input
               value={min}
@@ -68,9 +71,10 @@ const RandomNumber = () => {
               onChange={handleMin}
               required
               className="card-input"
+              placeholder="1"
             ></input>
           </div>
-          <div>
+          <div className="card-inputs">
             <label>Upper Limit</label>
             <input
               value={max}
@@ -78,73 +82,85 @@ const RandomNumber = () => {
               onChange={handleMax}
               required
               className="card-input"
+              placeholder="100"
             ></input>
           </div>
-          <div>
-            <label>how many random numbers do you want to generate ?</label>
+          <div className="card-inputs">
+            <label>How many random numbers do you want to generate ?</label>
             <input
               value={piece}
               type="number"
               onChange={handlePiece}
               required
               className="card-input"
+              placeholder="5"
             ></input>
           </div>
           <div className="card-radio">
-            <label>
-              <input
-                type="radio"
-                value="repeat"
-                checked={selectedRepeat === "repeat"}
-                onChange={handleRepeatChange}
-              />
-              Allow Repeat
-            </label>
-            <label>
-              <input
-                type="radio"
-                value="norepeat"
-                checked={selectedRepeat === "norepeat"}
-                onChange={handleRepeatChange}
-              />
-              Don't Allow Repeat
-            </label>
+            <fieldset>
+              <legend>Allow number repetition </legend>
+              <label>
+                <input
+                  type="radio"
+                  value="repeat"
+                  checked={selectedRepeat === "repeat"}
+                  onChange={handleRepeatChange}
+                />
+                <span>Allow Repeat</span>
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  value="norepeat"
+                  checked={selectedRepeat === "norepeat"}
+                  onChange={handleRepeatChange}
+                />
+                <span>Don't Allow Repeat</span>
+              </label>
+            </fieldset>
           </div>
           <div className="card-radio">
-            <label>
-              <input
-                type="radio"
-                value="asc"
-                checked={selectedSort === "asc"}
-                onChange={handleSortChange}
-              />
-              ASC
-            </label>
-            <label>
-              <input
-                type="radio"
-                value="desc"
-                checked={selectedSort === "desc"}
-                onChange={handleSortChange}
-              />
-              DESC
-            </label>
-            <label>
-              <input
-                type="radio"
-                value="no"
-                checked={selectedSort === "no"}
-                onChange={handleSortChange}
-              />
-              NO
-            </label>
+            <fieldset>
+              <legend>Sorting numbers </legend>
+              <label>
+                <input
+                  type="radio"
+                  value="asc"
+                  checked={selectedSort === "asc"}
+                  onChange={handleSortChange}
+                />
+                <span>ASC</span>
+              </label>
+
+              <label>
+                <input
+                  type="radio"
+                  value="desc"
+                  checked={selectedSort === "desc"}
+                  onChange={handleSortChange}
+                />
+                <span>DESC</span>
+              </label>
+
+              <label>
+                <input
+                  type="radio"
+                  value="no"
+                  checked={selectedSort === "no"}
+                  onChange={handleSortChange}
+                />
+                <span>NO</span>
+              </label>
+            </fieldset>
           </div>
 
           <div className="result-sum">
             {showResult ? (
-              <p>
-                {piece} numbers between {min} and {max} sorting {selectedSort}
-              </p>
+              <div>
+                <p>
+                  {piece} numbers between {min} and {max} sorting {selectedSort}
+                </p>
+              </div>
             ) : null}
           </div>
           {showResult ? (
@@ -152,6 +168,14 @@ const RandomNumber = () => {
               {results.map((result, index) => (
                 <h2 key={index}>{result}</h2>
               ))}
+              <div className="result-copy">
+                <CopyToClipboard text={results} onCopy={() => setCopied(true)}>
+                  <span className="result-copy">
+                    <MdOutlineContentCopy />
+                  </span>
+                </CopyToClipboard>
+                {copied ? <p style={{ color: "green" }}>copied</p> : null}
+              </div>
             </div>
           ) : null}
           <div className="buttons">

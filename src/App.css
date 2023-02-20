@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #F5EAEA;
+  background-image: linear-gradient(to bottom, #20262e, #29304a, #413762, #663872, #913175);
 }
 
 .App {
@@ -18,25 +18,34 @@ body {
 }
 
 .card {
-  width: 600px;
-  border: 5px dashed blueviolet;
-  border-radius: 8px;
+  width: 100%;
+  border: 1px solid #ddd;
+  color: #20262E;
+  border-radius: 12px;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  padding: 50px;
+  padding: 30px 50px;
+  background-color: #E9E8E8;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
 }
 
 .card h1 {
   text-align: center;
-  margin-bottom: 15px;
-  color: blueviolet;
+  margin-bottom: 20px;
 }
 
-.card label {
-  display: block;
-  font-size: 18px;
+.card label,
+legend {
+  font-size: 17px;
+  font-weight: 600;
 }
+
+.card-inputs {
+  margin-bottom: 15px;
+}
+
+
 
 .card .card-input {
   margin: 15px 0;
@@ -44,43 +53,64 @@ body {
   width: 100%;
   font-size: 18px;
   background-color: transparent;
-  border: 1px solid #393053;
+  color: #423f3f;
+  border: 1px solid #b1abab;
   border-radius: 5px;
 }
 
 .card-radio {
   margin: 15px 0;
+  width: 100%;
+
+}
+
+.card-radio fieldset {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-evenly;
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #b1abab;
 }
 
 
-.card-radio label {
-  margin: 10px 40px;
+
+.card-radio input {
+  accent-color: #913175;
+  width: 17px;
+  height: 17px;
+  text-align: center;
+  vertical-align: middle;
+  margin-bottom: 3px;
+}
+
+.card-radio span {
+  padding-left: 5px;
 }
 
 .buttons {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .buttons button {
   padding: 10px 40px;
+  width: 200px;
   cursor: pointer;
   color: white;
-  border-radius: 8px;
-  margin: 20px 0;
+  border-radius: 12px;
+  margin: 15px 0;
   font-size: 18px;
 }
 
 .btn-generate {
-  background-color: blueviolet;
-  border: 1px solid blueviolet;
+  background-color: #20262E;
+  border: 1px solid #20262E;
 }
 
 .card .btn-delete {
-  background-color: red;
-  border: 1px solid red;
+  background-color: #913175;
+  border: 1px solid #913175;
 }
 
 .card-result {
@@ -93,12 +123,16 @@ body {
 
 .result-sum {
   text-align: center;
-  margin: 20px 0;
+  margin: 10px 0;
   font-weight: 600;
 }
 
+.result-copy {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
 
 .card-result h2 {
-  padding: 10px;
-  border: 3px dashed blueviolet;
+  padding: 5px 10px;
 }

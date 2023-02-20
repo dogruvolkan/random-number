@@ -11,10 +11,13 @@
 - [x] girilen sayı adedi kadar random sayı üretmek
 - [x] Üretilen random sayıları büyükten küçüğe ya da küçükten büyüğe sıralama
 - [ ] sayı tekrarına izin verme vermeme
+- [x] random oluşturulan sayıları kopyalama işlemi
 
 ### Projede kullanılan Teknolojiler ve Metotlar :
 
 > Projede useState hook kullanıldı. stilendirme için herhangi bir kütüphane kullanılmadı pure css ile stilendirme yapıldı.
+react-copy-to-clipboard kullanıldı.
+React Icons kullanıldı.
 
 ### Proje Adresi
 
