@@ -27,7 +27,7 @@ gh-pages kullanıldı.
 
 ### Proje Adresi
 
-> [random-number-generator]("https://dogruvolkan.github.io/random-number/")
+[random-number](https://dogruvolkan.github.io/random-number)
 
 ### Projenin Görselleri:
 
